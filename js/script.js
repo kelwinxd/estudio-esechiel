@@ -53,7 +53,7 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(modelViewer);
 
-document.addEventListener("mousemove", (event) => {
+function followFace(event){
 	const { clientX, clientY } = event; // Posição do mouse
 	const { innerWidth, innerHeight } = window; // Dimensões da janela
   
@@ -65,7 +65,9 @@ document.addEventListener("mousemove", (event) => {
 	
 	// Ajusta o cameraOrbit do model-viewer
 	modelViewer.cameraOrbit = `${rotationY}deg ${rotationX}deg`;
-  });
+}
+
+document.addEventListener("mousemove", followFace);
 
 ////////////////////////////////////////////////////
   //slide 
@@ -85,9 +87,11 @@ function updateCardSize() {
 	  } else if ( screenWidth > 500 && screenWidth < 800) {
 		card.style.minWidth = '60%';
 		sliderWidth = slider.parentElement.offsetWidth - 150;
+		document.removeEventListener('mousemove', followFace)
 	  } else {
 		card.style.minWidth = '50%';
 		sliderWidth = slider.parentElement.offsetWidth - 160;
+		document.removeEventListener('mousemove',followFace)
 	  }
   });
 
