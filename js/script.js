@@ -86,8 +86,8 @@ function updateCardSize() {
 		card.style.minWidth = '60%';
 		sliderWidth = slider.parentElement.offsetWidth - 150;
 	  } else {
-		card.style.minWidth = '40%';
-		sliderWidth = slider.parentElement.offsetWidth - 300;
+		card.style.minWidth = '50%';
+		sliderWidth = slider.parentElement.offsetWidth - 160;
 	  }
   });
 
@@ -99,7 +99,7 @@ updateCardSize();
 // Lógica do movimento do slider
 function moveSlider() {
   const cardWidth = sliderWidth * 0.7; 
-
+  console.log(currentIndex)
   currentIndex++;
   if (currentIndex < cards.length) {
     slider.style.transition = "transform 0.5s ease-in-out";
@@ -112,6 +112,26 @@ function moveSlider() {
       currentIndex = 0;
     }, 500); // Tempo da transição antes de resetar
   }
+  const balls = document.querySelectorAll('.ball'); // Seleciona os elementos
+  const ballsAr = Array.from(balls); // Converte NodeList em array
+  
+  ballsAr.forEach((ball, index) => {
+	  if (currentIndex === 3 || currentIndex === 0) {
+		  ballsAr.forEach((b) => b.classList.remove('active')); 
+		  ballsAr[0].classList.add('active'); 
+
+	  } else if (currentIndex === 1) {
+		  ballsAr.forEach((b) => b.classList.remove('active')); 
+		  ballsAr[1].classList.add('active'); 
+	  } else {
+		ballsAr.forEach((b) => b.classList.remove('active')); 
+
+          ballsAr[2].classList.add('active')
+	  }
+  });
+  
+	
+  console.log(currentIndex)
 }
 
 // Adicionar um delay maior para o primeiro card
