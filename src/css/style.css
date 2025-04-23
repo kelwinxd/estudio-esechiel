@@ -530,6 +530,11 @@ section.office .img-office img{
   margin-left: 80px;
 }
 
+.emailcon p {
+  color: #fff;
+  font-size: 24px;
+}
+
 section.office img {
   width: 100%;
   margin-top: 30px;
@@ -903,6 +908,7 @@ section.contact {
   background-position: center;
   background-attachment: fixed;
 padding-bottom: 50px;
+  height: 500px;
 }
 
 section.contact .content {
@@ -935,11 +941,7 @@ section.contact .dados h3.title_social {
   padding-top: 35px;
 }
 
-section.contact .dados .line-left {
-  margin-top: 40px;
-  padding-left: 30px;
-  border-left: 1px solid #860F22;
-}
+
 
 section.contact .dados p {
   color: #4B4B4B;
@@ -947,14 +949,21 @@ section.contact .dados p {
   padding-top: 25px;
 }
 
+
+
+.dados {
+  margin-top: 20px;
+}
+
 .social {
+  margin-top: 15px ;
   display: flex;
-  gap: 20px;
+  gap: 40px;
   justify-content: start;
 }
 
 .social i {
-  font-size: 30px;
+  font-size: 50px;
 }
 
 
